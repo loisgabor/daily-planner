@@ -7,18 +7,30 @@ $(document).ready(function () {
   var timeBlock = $(".time-block");
   var saveBtn = $(".saveBtn");
   var currentDay = $("#currentDay");
-  // var textArea = $(".textarea");
   var past = $(".past");
   var present = $(".present");
   var future = $(".future");
+
   // JS Variable
-  var time = moment().format("dddd, MMMM Do, YYYY");
-
-  // $(".hours") = moment();
-  // console.log(hours);
-  // Funtion Definitions
   $("#currentDay").text(moment().format("dddd, MMMM Do, YYYY"));
-  // Function Calls
+  var time = moment().format("dddd, MMMM Do, YYYY");
+  var currentHour = moment().format("H");
+  var workHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
-  // Event Listener
+  // // Funtion Definitions
+
+  for (var i = 0; i < workHours.length; i++) {
+    var hoursOfDay = $("<p>");
+
+    hoursOfDay.attr("data-value", workHours[i]);
+
+    hoursOfDay.text(workHours[i]);
+
+    $(".hour").append(hoursOfDay);
+    console.log(hoursOfDay);
+
+    // Function Calls
+
+    // Event Listener
+  }
 });
