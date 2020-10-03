@@ -20,17 +20,23 @@ $(document).ready(function () {
   // // Funtion Definitions
 
   for (var i = 0; i < workHours.length; i++) {
-    var hoursOfDay = $("<p>");
+    // var hoursOfDay = $("<p>");
 
-    hoursOfDay.attr("data-value", workHours[i]);
+    // hoursOfDay.attr("data-value", workHours[i]);
 
-    hoursOfDay.text(workHours[i]);
+    // hoursOfDay.text(workHours[i]);
 
-    $(".hour").append(hoursOfDay);
-    console.log(hoursOfDay);
+    // $(".hour").append(hoursOfDay);
+    // console.log(hoursOfDay);
+
+    const html = `<div class="row present">
+    <div class="hour">${workHours[i]}</div>
+    <div class="time-block textarea"></div>
+    <div class="saveBtn"></div>
+  </div>`;
 
     // Function Calls
-
+    $(".container").append(html);
     // Event Listener
   }
 });
