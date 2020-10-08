@@ -18,7 +18,7 @@ $(document).ready(function () {
 
   var workHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
-  // // Funtion Definitions
+  // // Function Definitions
 
   for (var i = 0; i < workHours.length; i++) {
     // const html = `<div data-hour=${workHours[i]}class="row hour-block past future present">
@@ -28,17 +28,19 @@ $(document).ready(function () {
     // </div>`;
     let timeString = "";
     if (workHours[i] < 12) {
-      timeString = `${workHours[i]} AM`;
+      timeString = `${workHours[i]}:00 AM`;
     } else if (workHours[i] == 12) {
-      timeString = `${workHours[i]} PM`;
+      timeString = `${workHours[i]}:00 PM`;
     } else {
-      timeString = `${workHours[i] % 12} PM`;
+      timeString = `${workHours[i] % 12}:00 PM`;
     }
     const html = `<div class="row">
-      <div class="hour">${timeString}</div>
+      <div class="hour col-2">${timeString}</div>
       <div data-value="${workHours[i]}" class="time-block"></div>
-      <textarea class="textarea">${localStorage.getItem(timeString)}</textarea>
-      <div class="saveBtn ml-auto">Save</div>
+      <textarea class="textarea col-8">${
+        localStorage.getItem(timeString) || ""
+      }</textarea>
+      <div class="saveBtn ml-auto col-1"> Save</div>
     </div>`;
 
     // Function Calls
@@ -49,10 +51,11 @@ $(document).ready(function () {
 
   $(".saveBtn").on("click", function () {
     const value = $(this).siblings(".textarea").val();
-    console.log(value);
     const hour = $(this).siblings(".hour").text();
-    console.log(hour);
     localStorage.setItem(hour, value);
+    // if ((localStorage.value = "")) {
+    //   return "";
+    // }
   });
 
   function checkTime() {
@@ -77,4 +80,5 @@ $(document).ready(function () {
     });
   }
   var interval = setInterval(checkTime, 5000);
+  checkTime();
 });
