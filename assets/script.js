@@ -21,11 +21,6 @@ $(document).ready(function () {
   // // Function Definitions
 
   for (var i = 0; i < workHours.length; i++) {
-    // const html = `<div data-hour=${workHours[i]}class="row hour-block past future present">
-    //   <div data-hour=${workHours[i]}class="hour">${workHours[i]}</div>
-    //   <div class="time-block textarea"></div>
-    //   <div class="saveBtn"></div>
-    // </div>`;
     let timeString = "";
     if (workHours[i] < 12) {
       timeString = `${workHours[i]}:00 AM`;
@@ -53,14 +48,11 @@ $(document).ready(function () {
     const value = $(this).siblings(".textarea").val();
     const hour = $(this).siblings(".hour").text();
     localStorage.setItem(hour, value);
-    // if ((localStorage.value = "")) {
-    //   return "";
-    // }
   });
 
   function checkTime() {
     var currentHour = moment().hours();
-    // console.log($(".time-block"));
+
     $(".time-block").each(function (i, block) {
       var blockHour = $(this).attr("data-value");
       console.log($(this).parent());
